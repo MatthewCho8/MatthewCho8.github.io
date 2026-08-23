@@ -38,7 +38,12 @@ function renderDailyPicks(picks) {
     </article>`).join("");
 }
 
+const previousPicksPageSize = 5;
+let previousPicksPage = 1;
+let previousPicksData = [];
+
 function renderPreviousPicks(picks) {
+  previousPicksData = picks;
   const settled = picks.filter(pick => ["win", "loss", "push"].includes(pick.result));
   const wins = settled.filter(pick => pick.result === "win").length;
   const losses = settled.filter(pick => pick.result === "loss").length;
@@ -49,8 +54,12 @@ function renderPreviousPicks(picks) {
   document.querySelector("#picks-profit").textContent = `${profit >= 0 ? "+" : ""}${profit.toFixed(2)} units`;
   document.querySelector("#picks-roi").textContent = stake ? `${(profit / stake * 100).toFixed(1)}%` : "0.0%";
 
+  const pages = Math.max(1, Math.ceil(picks.length / previousPicksPageSize));
+  previousPicksPage = Math.min(previousPicksPage, pages);
+  const start = (previousPicksPage - 1) * previousPicksPageSize;
+  const visible = picks.slice(start, start + previousPicksPageSize);
   const body = document.querySelector("#previous-picks");
-  body.innerHTML = picks.length ? picks.map(pick => {
+  body.innerHTML = visible.length ? visible.map(pick => {
     const profitValue = pickProfit(pick);
     const result = pick.result || "pending";
     return `<tr>
@@ -62,7 +71,25 @@ function renderPreviousPicks(picks) {
       <td>${profitValue == null ? "—" : `${profitValue >= 0 ? "+" : ""}${profitValue.toFixed(2)} U`}</td>
     </tr>`;
   }).join("") : '<tr class="picks-table-empty"><td colspan="6">Settled picks will appear here.</td></tr>';
+
+  const pagination = document.querySelector("#previous-picks-pagination");
+  pagination.hidden = picks.length <= previousPicksPageSize;
+  document.querySelector("#previous-picks-page").textContent = `Page ${previousPicksPage} of ${pages}`;
+  document.querySelector("#previous-picks-prev").disabled = previousPicksPage === 1;
+  document.querySelector("#previous-picks-next").disabled = previousPicksPage === pages;
 }
+
+document.querySelector("#previous-picks-prev").addEventListener("click", () => {
+  if (previousPicksPage === 1) return;
+  previousPicksPage -= 1;
+  renderPreviousPicks(previousPicksData);
+});
+
+document.querySelector("#previous-picks-next").addEventListener("click", () => {
+  if (previousPicksPage * previousPicksPageSize >= previousPicksData.length) return;
+  previousPicksPage += 1;
+  renderPreviousPicks(previousPicksData);
+});
 
 fetch("data/edgework-picks.json", { cache: "no-store" })
   .then(response => {

@@ -223,6 +223,40 @@
   color: var(--muted);
 }
 
+.picks-pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.picks-pagination[hidden] {
+  display: none;
+}
+
+.picks-pagination span {
+  min-width: 82px;
+  color: var(--muted);
+  font: 10px "DM Mono", monospace;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.picks-pagination button {
+  padding: 8px 13px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font: 10px "DM Mono", monospace;
+  cursor: pointer;
+}
+
+.picks-pagination button:disabled {
+  cursor: default;
+  opacity: .35;
+}
+
 .edgework-study .case-section,
 .edgework-study .case-section-dark,
 .edgework-study .case-blue {
