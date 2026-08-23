@@ -1,10 +1,82 @@
-document.querySelectorAll(".pick-card[data-wager][data-odds]").forEach((pick) => {
-  const wager = Number.parseFloat(pick.dataset.wager);
-  const odds = Number.parseFloat(pick.dataset.odds);
-  const output = pick.querySelector(".pick-to-win");
+const picksEscape = value => String(value ?? "").replace(/[&<>"']/g, character => ({
+  "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+})[character]);
 
-  if (!output || !Number.isFinite(wager) || !Number.isFinite(odds)) return;
+const picksDate = value => new Intl.DateTimeFormat("en-US", {
+  timeZone: "America/Toronto", month: "short", day: "numeric",
+}).format(new Date(value));
 
-  const potentialProfit = wager * (odds - 1);
-  output.textContent = `${potentialProfit.toFixed(2)} U`;
-});
+const picksTime = value => new Intl.DateTimeFormat("en-US", {
+  timeZone: "America/Toronto", hour: "numeric", minute: "2-digit",
+}).format(new Date(value));
+
+const marketLabel = pick => {
+  const name = pick.market === "moneyline" ? "Moneyline" : pick.market === "spread" ? "Run line" : "Total";
+  if (pick.line == null) return name;
+  const line = Number(pick.line);
+  return `${name} · ${line > 0 ? "+" : ""}${line}`;
+};
+
+const pickProfit = pick => pick.result === "win"
+  ? Number(pick.wager) * (Number(pick.odds) - 1)
+  : pick.result === "loss" ? -Number(pick.wager) : pick.result === "push" ? 0 : null;
+
+function renderDailyPicks(picks) {
+  const container = document.querySelector("#daily-picks");
+  if (!picks.length) {
+    container.innerHTML = '<p class="picks-empty">No picks have been published for today.</p>';
+    return;
+  }
+  container.innerHTML = picks.map(pick => `
+    <article class="pick-card">
+      <div class="pick-matchup"><span>Matchup</span><strong>${picksEscape(pick.matchup)}</strong><small>${picksDate(pick.start)} · ${picksTime(pick.start)}</small></div>
+      <div><span>Selection</span><strong>${picksEscape(pick.selection)}</strong><small>${picksEscape(marketLabel(pick))}</small></div>
+      <div><span>Sportsbook</span><strong>${picksEscape(pick.sportsbook || "—")}</strong></div>
+      <div><span>Odds</span><strong>${Number(pick.odds).toFixed(2)}</strong></div>
+      <div><span>Wager</span><strong>${Number(pick.wager).toFixed(2)} U</strong></div>
+      <div><span>To win</span><strong>${(Number(pick.wager) * (Number(pick.odds) - 1)).toFixed(2)} U</strong></div>
+    </article>`).join("");
+}
+
+function renderPreviousPicks(picks) {
+  const settled = picks.filter(pick => ["win", "loss", "push"].includes(pick.result));
+  const wins = settled.filter(pick => pick.result === "win").length;
+  const losses = settled.filter(pick => pick.result === "loss").length;
+  const pushes = settled.filter(pick => pick.result === "push").length;
+  const profit = settled.reduce((sum, pick) => sum + pickProfit(pick), 0);
+  const stake = settled.reduce((sum, pick) => sum + Number(pick.wager), 0);
+  document.querySelector("#picks-record").textContent = `${wins}–${losses}${pushes ? `–${pushes}` : ""}`;
+  document.querySelector("#picks-profit").textContent = `${profit >= 0 ? "+" : ""}${profit.toFixed(2)} units`;
+  document.querySelector("#picks-roi").textContent = stake ? `${(profit / stake * 100).toFixed(1)}%` : "0.0%";
+
+  const body = document.querySelector("#previous-picks");
+  body.innerHTML = picks.length ? picks.map(pick => {
+    const profitValue = pickProfit(pick);
+    const result = pick.result || "pending";
+    return `<tr>
+      <td>${picksEscape(picksDate(pick.start))}</td><td>${picksEscape(pick.selection)}</td>
+      <td>${picksEscape(marketLabel(pick))}</td><td>${Number(pick.odds).toFixed(2)}</td>
+      <td>${picksEscape(result[0].toUpperCase() + result.slice(1))}</td>
+      <td>${profitValue == null ? "—" : `${profitValue >= 0 ? "+" : ""}${profitValue.toFixed(2)} U`}</td>
+      <td>${profitValue == null ? "—" : `${(profitValue / Number(pick.wager) * 100).toFixed(1)}%`}</td>
+    </tr>`;
+  }).join("") : '<tr class="picks-table-empty"><td colspan="7">Settled picks will appear here.</td></tr>';
+}
+
+fetch("data/edgework-picks.json", { cache: "no-store" })
+  .then(response => {
+    if (!response.ok) throw new Error(`Picks request failed: ${response.status}`);
+    return response.json();
+  })
+  .then(data => {
+    const picks = Array.isArray(data.picks) ? data.picks : [];
+    const today = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "America/Toronto", year: "numeric", month: "2-digit", day: "2-digit",
+    }).format(new Date());
+    renderDailyPicks(picks.filter(pick => pick.date === today && pick.result === "pending"));
+    renderPreviousPicks(picks.filter(pick => pick.date !== today || pick.result !== "pending"));
+  })
+  .catch(error => {
+    console.warn("Could not load Edgework picks", error);
+    document.querySelector("#daily-picks").innerHTML = '<p class="picks-empty">No picks have been published for today.</p>';
+  });
