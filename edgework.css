@@ -207,6 +207,18 @@
   font-size: 13px;
 }
 
+.picks-table td strong,
+.picks-table td small {
+  display: block;
+}
+
+.picks-table td small {
+  margin-top: 4px;
+  color: var(--muted);
+  font: 10px "DM Mono", monospace;
+  letter-spacing: .02em;
+}
+
 .picks-table-empty td {
   color: var(--muted);
 }

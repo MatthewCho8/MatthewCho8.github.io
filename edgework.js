@@ -54,13 +54,14 @@ function renderPreviousPicks(picks) {
     const profitValue = pickProfit(pick);
     const result = pick.result || "pending";
     return `<tr>
-      <td>${picksEscape(picksDate(pick.start))}</td><td>${picksEscape(pick.selection)}</td>
-      <td>${picksEscape(marketLabel(pick))}</td><td>${Number(pick.odds).toFixed(2)}</td>
+      <td><strong>${picksEscape(picksDate(pick.start))}</strong><small>${picksEscape(picksTime(pick.start))}</small></td>
+      <td><strong>${picksEscape(pick.matchup)}</strong></td>
+      <td><strong>${picksEscape(pick.selection)}</strong><small>${picksEscape(marketLabel(pick))}</small></td>
+      <td>${Number(pick.odds).toFixed(2)}</td>
       <td>${picksEscape(result[0].toUpperCase() + result.slice(1))}</td>
       <td>${profitValue == null ? "—" : `${profitValue >= 0 ? "+" : ""}${profitValue.toFixed(2)} U`}</td>
-      <td>${profitValue == null ? "—" : `${(profitValue / Number(pick.wager) * 100).toFixed(1)}%`}</td>
     </tr>`;
-  }).join("") : '<tr class="picks-table-empty"><td colspan="7">Settled picks will appear here.</td></tr>';
+  }).join("") : '<tr class="picks-table-empty"><td colspan="6">Settled picks will appear here.</td></tr>';
 }
 
 fetch("data/edgework-picks.json", { cache: "no-store" })
