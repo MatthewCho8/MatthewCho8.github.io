@@ -1,0 +1,13 @@
+# Unused image experiments
+assets/matthew-portrait-restored.png
+
+# Local tooling
+.DS_Store
+Thumbs.db
+/.git/
+
+# Sensitive local originals
+private/
+
+# Superseded résumé containing personal contact information
+CV - Matthew Cho.pdf

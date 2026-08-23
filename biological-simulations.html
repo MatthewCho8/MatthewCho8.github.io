@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Biological Simulations — agent-based models of fungal hypha growth and maze exploration by Matthew Cho."
+    />
+    <meta name="theme-color" content="#c7ff5e" />
+    <title>Biological Simulations — Matthew Cho</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="project.css" />
+    <link rel="stylesheet" href="simulations.css" />
+  </head>
+  <body id="top" class="case-study simulations-study">
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header case-header">
+      <nav class="page-tabs" aria-label="Portfolio pages">
+        <a href="index.html">About</a>
+        <a href="resume.html">Résumé</a>
+        <a href="proms.html">ProMS</a>
+        <a class="active" href="biological-simulations.html" aria-current="page">Biological Simulations</a>
+        <a href="edgework-analytics.html">Edgework Analytics</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <a class="header-cta" href="index.html#work">Back to work <span aria-hidden="true">↙</span></a>
+    </header>
+
+    <main>
+      <section class="case-hero section-shell">
+        <h1 class="reveal">Biological Simulations<span class="accent-dot">.</span></h1>
+        <div class="case-intro reveal">
+          <p>
+            A configurable simulation suite for studying how fungal hyphae grow,
+            branch, sense boundaries, and explore complex microfluidic mazes.
+          </p>
+          <dl>
+            <div><dt>Stack</dt><dd>Python · NumPy · Matplotlib · Seaborn · OpenCV · Tkinter · MATLAB · Java</dd></div>
+            <div><dt>Skills</dt><dd>Agent-based modeling · Computational biology · Stochastic simulation · Computer vision · Image processing · Statistical analysis · Data visualization · GUI development · Reproducible research</dd></div>
+          </dl>
+        </div>
+        <div class="growth-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      </section>
+
+      <section id="overview" class="case-section section-shell">
+        <div class="case-section-label reveal"><span>01</span><span>Overview</span></div>
+        <div class="case-section-copy reveal">
+          <h2>From experimental observations to encoded growth behaviour.</h2>
+          <p class="case-lede">
+            The simulation represents fungal hyphae as connected, branching agents.
+            Each active tip advances through a digitized maze while local rules
+            govern growth rate, turning, branching, collision response, biomass,
+            and interactions with nearby hyphae. Hierarchical mother–daughter
+            relationships preserve lineage and coordinate resource allocation across
+            the expanding network. Local optimization supports the needs of individual
+            hyphae, while global optimization balances growth across the colony.
+          </p>
+          <div class="simulation-rules">
+            <span>Dynamic growth rate</span><span>Stochasticity</span>
+            <span>Branching</span><span>Directional memory</span>
+            <span>Negative autotropism</span><span>Biomass optimization &amp; reallocation</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="problem" class="case-section case-section-dark" hidden>
+        <div class="section-shell case-section-inner">
+          <div class="case-section-label reveal"><span>02</span><span>Research problem</span></div>
+          <div class="case-section-copy reveal">
+            <h2>Simple rules can create complex exploration.</h2>
+            <div class="two-column-copy">
+              <p>
+                Fungal networks adapt as their growing tips encounter walls, sibling
+                branches, and constrained openings. Understanding that emergent
+                behavior requires more than tracing a single path.
+              </p>
+              <p>
+                The software creates a controlled environment for isolating growth
+                mechanisms and asking how they influence maze coverage, branching,
+                time to exit, and the efficiency of exploration.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="model" class="case-section section-shell">
+        <div class="case-section-label reveal"><span>03</span><span>Simulation model</span></div>
+        <div class="case-section-copy reveal">
+          <h2>From image to experiment.</h2>
+          <div class="system-flow simulation-flow reveal" aria-label="Biological simulation flow" hidden>
+            <div><span>01</span><strong>Digitize</strong><small>Read maze geometry</small></div>
+            <div><span>02</span><strong>Seed</strong><small>Position initial hyphae</small></div>
+            <div><span>03</span><strong>Grow</strong><small>Advance active tips</small></div>
+            <div><span>04</span><strong>Respond</strong><small>Branch, turn, or stop</small></div>
+            <div><span>05</span><strong>Measure</strong><small>Aggregate repeated runs</small></div>
+          </div>
+          <p>
+            Maze images are skeletonized into boundaries and classified into wall
+            geometries. Each hypha maintains its lineage, nodes, growth state,
+            directional memory, and biomass. The model checks proposed movement
+            against walls and existing growth before updating the network.
+          </p>
+        </div>
+      </section>
+
+      <section class="case-section simulations-green" hidden>
+        <div class="section-shell case-section-inner">
+          <div class="case-section-label reveal"><span>04</span><span>Behavioral rules</span></div>
+          <div class="case-section-copy reveal">
+            <h2>Mechanisms that can be switched, tuned, and compared.</h2>
+            <div class="feature-grid simulation-feature-grid">
+              <article class="reveal">
+                <span>Branching</span>
+                <h3>New paths emerge</h3>
+                <p>Random branching uses configurable angles, frequency, probability, and daughter limits; collisions can trigger additional branches.</p>
+              </article>
+              <article class="reveal">
+                <span>Navigation</span>
+                <h3>Memory meets geometry</h3>
+                <p>Directional memory lets a tip recover its trajectory after navigating a boundary, while collision checks prevent invalid growth.</p>
+              </article>
+              <article class="reveal">
+                <span>Interaction</span>
+                <h3>Agents sense agents</h3>
+                <p>Negative autotropism detects nearby unrelated tips and adjusts direction, reducing overlap between expanding networks.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="visuals" class="simulation-gallery">
+        <div class="section-shell">
+          <div class="case-section-label reveal"><span>05</span><span>Simulation outputs</span></div>
+          <div class="gallery-heading reveal">
+            <h2>Representative examples.</h2>
+            <p>
+              Animated trajectories expose individual decisions; aggregate outputs
+              reveal where repeated simulations explore and how outcomes vary.
+            </p>
+          </div>
+          <div class="simulation-image-grid">
+            <figure class="simulation-image simulation-animation reveal">
+              <img src="assets/simulations/angled_good.gif" alt="Animated simulation of collision-induced fungal branching" />
+              <figcaption>Collision-induced branching</figcaption>
+            </figure>
+            <figure class="simulation-image reveal">
+              <img src="assets/simulations/heatmap.png" alt="Average spatial heatmap from repeated maze simulations" />
+              <figcaption>Average exploration heatmap across repeated runs</figcaption>
+            </figure>
+            <figure class="simulation-image reveal">
+              <img src="assets/simulations/histograms.png" alt="Histograms of fungal simulation outcomes" />
+              <figcaption>Outcome distributions: time, distance, branching, and exit behavior</figcaption>
+            </figure>
+            <figure class="simulation-image reveal">
+              <img src="assets/simulations/hypha-gui.png" alt="Desktop interface for configuring the fungal hypha growth simulator" />
+              <figcaption>Hypha Growth Simulator configuration interface</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="interface" class="case-section section-shell" hidden>
+        <div class="case-section-label reveal"><span>06</span><span>Research interface</span></div>
+        <div class="case-section-copy reveal">
+          <h2>Experiments without code edits.</h2>
+          <p class="case-lede">
+            A desktop control surface exposes simulation length, maze selection,
+            starting hyphae, growth dynamics, branching rules, contact sensing,
+            directional behavior, output naming, and animation generation.
+          </p>
+          <figure class="gui-figure reveal">
+            <img src="assets/simulations/hypha-gui.png" alt="Desktop interface for configuring the fungal hypha growth simulator" />
+            <figcaption>Hypha Growth Simulator configuration interface</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section lessons section-shell" hidden>
+        <div class="case-section-label reveal"><span>07</span><span>What I learned</span></div>
+        <div class="case-section-copy reveal">
+          <h2>Emergence needs disciplined measurement.</h2>
+          <div class="lesson-list">
+            <p class="reveal"><span>01</span>Agent-based models make assumptions visible by translating biological hypotheses into explicit rules.</p>
+            <p class="reveal"><span>02</span>Repeated runs and aggregate spatial outputs are essential when stochastic behavior drives individual trajectories.</p>
+            <p class="reveal"><span>03</span>A configurable interface turns a simulation into an experimental tool other researchers can interrogate.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer section-shell">
+      <span>© <span id="year"></span> Matthew Cho</span>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+
+    <script src="project.js"></script>
+  </body>
+</html>

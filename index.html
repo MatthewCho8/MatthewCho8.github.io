@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio of Matthew Cho — computational researcher and engineer building tools for biological discovery."
+    />
+    <meta name="theme-color" content="#f0efeb" />
+    <title>Matthew Cho — Computational Researcher & Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <nav class="page-tabs" aria-label="Portfolio pages">
+        <a class="active" href="index.html" aria-current="page">About</a>
+        <a href="resume.html">Résumé</a>
+        <a href="proms.html">ProMS</a>
+        <a href="biological-simulations.html">Biological Simulations</a>
+        <a href="edgework-analytics.html">Edgework Analytics</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="header-cta" href="mailto:chomatt10@gmail.com" data-profile-link="email">
+        Let’s talk <span aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <main id="top">
+      <section class="hero section-shell" aria-labelledby="hero-title">
+        <h1 id="hero-title" class="reveal">
+          Matthew Cho<span class="accent-dot">.</span>
+        </h1>
+        <div class="hero-footer reveal">
+          <div class="hero-blurb">
+            <p>
+              I’m a scientific researcher with an M.Sc. in Biological and Biomedical
+              Engineering from McGill University. My experience spans computational
+              modeling, bioinformatics, data analysis, and scientific software
+              development. My work sits at the intersection of science, programming, and
+              quantitative analysis. I enjoy taking complex problems, breaking them down
+              into manageable components, and building reproducible tools and analyses to
+              better understand them.
+            </p>
+            <p>
+              Over several years as a research assistant, I have developed computational
+              tools and data-processing workflows, worked with complex biological
+              datasets, contributed to peer-reviewed research, and helped translate
+              scientific questions into practical, data-driven solutions. While my
+              background lies in STEM, I am also passionate about sports analytics. I am
+              fascinated by translating low-level statistics and player data into
+              actionable and valuable insight.
+            </p>
+            <p>
+              Please enjoy exploring a curated selection of my personal projects and
+              journal publications.
+            </p>
+          </div>
+          <a class="round-link" href="#work" aria-label="See selected work">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 4v16m0 0 6-6m-6 6-6-6" />
+            </svg>
+          </a>
+        </div>
+        <img
+          class="hero-photo"
+          src="assets/matthew-portrait-web.jpg"
+          width="2316"
+          height="3088"
+          alt="Matthew Cho outdoors in the rain"
+          decoding="async"
+          fetchpriority="high"
+        />
+        <div class="hero-index" aria-hidden="true">01 — 04</div>
+      </section>
+
+      <section id="work" class="projects section-shell" aria-labelledby="work-title">
+        <h2 id="work-title" class="section-heading reveal">
+          Selected projects<span class="accent-dot">.</span>
+        </h2>
+        <div id="project-list" class="project-list"></div>
+      </section>
+
+      <section id="about" class="about section-shell" aria-labelledby="about-title" hidden>
+        <div class="about-number" aria-hidden="true">02</div>
+        <div class="about-copy">
+          <div class="section-label reveal">
+            <span>About me</span>
+          </div>
+          <h2 id="about-title" class="reveal">
+            I turn biological questions into
+            <span class="circled">computational</span> tools.
+          </h2>
+          <div class="about-body reveal">
+            <p data-profile="bio">
+              I’m a computational researcher with an M.Sc. in Biological and
+              Biomedical Engineering from McGill. My work combines molecular
+              modeling, machine learning, data analysis, and scientific software.
+            </p>
+            <p>
+              I enjoy taking research from an open question to a reproducible tool:
+              designing the model, writing the code, analyzing the results, and
+              communicating what they mean.
+            </p>
+          </div>
+        </div>
+        <div class="about-card reveal" aria-label="A note from Matthew">
+          <div class="portrait-placeholder">
+            <span data-profile="initials">AM</span>
+          </div>
+          <p>From biological question<br />to computational insight.</p>
+          <span class="scribble" aria-hidden="true">↳</span>
+        </div>
+      </section>
+
+      <section id="experience" class="experience section-shell" aria-labelledby="experience-title" hidden>
+        <div class="section-label reveal">
+          <span>Experience</span>
+          <a href="CV - no phone.pdf" data-profile-link="resume" target="_blank">
+            Download CV <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <h2 id="experience-title" class="section-heading reveal">
+          Where I’ve contributed<span class="accent-dot">.</span>
+        </h2>
+        <div id="experience-list" class="experience-list"></div>
+      </section>
+
+      <section id="research" class="research section-shell" aria-labelledby="research-title">
+        <h2 id="research-title" class="section-heading reveal">
+          Selected publications<span class="accent-dot">.</span>
+        </h2>
+        <div id="publication-list" class="publication-list"></div>
+        <div class="skills-block reveal" hidden>
+          <p class="skills-title">Technical toolkit</p>
+          <div id="skills-list" class="skills-list"></div>
+        </div>
+        <div class="awards-block reveal" hidden>
+          <p class="skills-title">Recognition</p>
+          <div id="awards-list" class="awards-list"></div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact section-shell" aria-labelledby="contact-title">
+        <h2 id="contact-title" class="reveal">Contact me<span class="accent-dot">.</span></h2>
+        <a class="contact-link reveal" href="mailto:chomatt10@gmail.com" data-profile-link="email">
+          <span data-profile="email">chomatt10@gmail.com</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+        <div class="contact-socials reveal" aria-label="Social links">
+          <a href="https://github.com/" data-profile-link="github" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://linkedin.com/" data-profile-link="linkedin" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="CV - no phone.pdf" target="_blank">Résumé</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-shell">
+      <span>© <span id="year"></span> <span data-profile="name">Matthew Cho</span></span>
+      <button id="back-to-top" type="button">Back to top ↑</button>
+    </footer>
+
+    <script src="script.js?v=20260819"></script>
+  </body>
+</html>

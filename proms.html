@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ProMS — an integrated framework for molecular surface analysis and atomic-level hydrophobicity mapping by Matthew Cho."
+    />
+    <meta name="theme-color" content="#ff5c35" />
+    <title>ProMS — Matthew Cho</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="project.css" />
+    <link rel="stylesheet" href="proms.css" />
+  </head>
+  <body id="top" class="case-study proms-study">
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header case-header">
+      <nav class="page-tabs" aria-label="Portfolio pages">
+        <a href="index.html">About</a>
+        <a href="resume.html">Résumé</a>
+        <a class="active" href="proms.html" aria-current="page">ProMS</a>
+        <a href="biological-simulations.html">Biological Simulations</a>
+        <a href="edgework-analytics.html">Edgework Analytics</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <a class="header-cta" href="index.html#work">Back to work <span aria-hidden="true">↙</span></a>
+    </header>
+
+    <main>
+      <section class="case-hero section-shell">
+        <h1 class="reveal">Pro<span class="proms-accent">M</span>S.</h1>
+        <div class="case-intro reveal">
+          <div class="case-summary">
+            <p>
+              An integrated PyMOL plugin for quantifying and visualizing molecular
+              surface properties. Please <a class="inline-contact" href="index.html#contact">contact me</a>
+              for access.
+            </p>
+            <a class="thesis-download" href="assets/proms/final-thesis.pdf" download="Matthew-Cho-ProMS-Thesis.pdf">Download thesis <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="case-meta">
+            <dl>
+              <div><dt>Stack</dt><dd>Python · C · NumPy · Pandas · PySide/Qt · PyMOL API · msRoll · SQL · PDB</dd></div>
+              <div><dt>Skills</dt><dd>Scientific software development · Molecular modeling · Computational geometry · Atomic hydrophobicity mapping · Surface-property analysis · Machine learning · GUI development · Batch processing · Data visualization · Reproducible research</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="molecule-mark" aria-hidden="true">
+          <i></i><i></i><i></i><i></i>
+        </div>
+      </section>
+
+      <section id="overview" class="case-section section-shell">
+        <div class="case-section-label reveal"><span>01</span><span>Overview</span></div>
+        <div class="case-section-copy reveal">
+          <h2>Making molecular surfaces measurable.</h2>
+          <p class="case-lede">
+            ProMS, the “Protein Molecular Surface Calculator,” turns a structure from
+            the Protein Data Bank or a custom PDB file into a reproducible surface
+            analysis. Researchers can tune physical parameters, compare property
+            definitions, export quantitative summaries, and inspect the result directly
+            in PyMOL. Originally designed primarily for protein analysis, ProMS has been
+            expanded to small molecules, such as drugs and steroids, and nucleic acids.
+          </p>
+          <div class="proms-capabilities">
+            <span>PDB retrieval</span>
+            <span>Surface generation</span>
+            <span>Hydrophobicity</span>
+            <span>Charge</span>
+            <span>Batch analysis</span>
+            <span>3D visualization</span>
+            <span>Customizable analyses</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="problem" class="case-section case-section-dark" hidden>
+        <div class="section-shell case-section-inner">
+          <div class="case-section-label reveal"><span>02</span><span>Research problem</span></div>
+          <div class="case-section-copy reveal">
+            <h2>A surface is more than its shape.</h2>
+            <div class="two-column-copy">
+              <p>
+                Molecular interactions depend on the chemical character exposed at
+                a surface. Global residue values can obscure the uneven contribution
+                of individual atoms and the amount of each atom that is actually
+                solvent-accessible.
+              </p>
+              <p>
+                ProMS combines geometric surface calculations with force-field,
+                hydrophobicity, and pH-dependent charge data to map those properties
+                at atomic resolution and summarize them at molecular scale.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="method" class="case-section section-shell">
+        <div class="case-section-label reveal"><span>03</span><span>Method</span></div>
+        <div class="case-section-copy reveal">
+          <h2>From structure file to surface map.</h2>
+          <div class="system-flow proms-flow reveal" aria-label="ProMS analysis flow" hidden>
+            <div><span>01</span><strong>Prepare</strong><small>Load and clean PDB structure</small></div>
+            <div><span>02</span><strong>Roll</strong><small>Compute areas with msRoll</small></div>
+            <div><span>03</span><strong>Map</strong><small>Apply force field and scale</small></div>
+            <div><span>04</span><strong>Summarize</strong><small>Aggregate surface properties</small></div>
+            <div><span>05</span><strong>Render</strong><small>Color surfaces in PyMOL</small></div>
+          </div>
+          <figure class="proms-inline-figure proms-architecture reveal">
+            <img src="assets/proms/architecture.png" alt="ProMS software architecture showing inputs, user interaction, computational backend, and outputs" />
+            <figcaption>ProMS system architecture and data flow</figcaption>
+          </figure>
+          <p>
+            The pipeline cleans the structure, computes per-atom solvent-accessible
+            areas for a chosen probe radius, and combines exposed area with
+            hydrophobicity and charge reference data. It generates atomic results,
+            molecular summaries, volume files, and a saved PyMOL session.
+          </p>
+        </div>
+      </section>
+
+      <section class="case-section proms-orange" hidden>
+        <div class="section-shell case-section-inner">
+          <div class="case-section-label reveal"><span>04</span><span>Product design</span></div>
+          <div class="case-section-copy reveal">
+            <h2>Advanced analysis without an advanced interface.</h2>
+            <div class="feature-grid proms-feature-grid">
+              <article class="reveal">
+                <span>Inputs</span>
+                <h3>Researcher control</h3>
+                <p>Choose probe radius, pH, force field, hydrophobicity scale, structure cleaning, and visualization quality.</p>
+              </article>
+              <article class="reveal">
+                <span>Extensibility</span>
+                <h3>Custom definitions</h3>
+                <p>Bring custom PDB files, force fields, hydrophobicity scales, and charge settings into the same workflow.</p>
+              </article>
+              <article class="reveal">
+                <span>Scale</span>
+                <h3>Single or batch</h3>
+                <p>Run one interactive analysis through the Qt interface or process a prepared set of structures in batch mode.</p>
+              </article>
+            </div>
+            <figure class="proms-inline-figure reveal">
+              <img src="assets/proms/gui.png" alt="ProMS graphical user interface with molecular input, calculation, and visualization controls" />
+              <figcaption>Desktop interface for configuring and running a ProMS analysis</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="visuals" class="proms-gallery">
+        <div class="section-shell">
+          <div class="case-section-label reveal"><span>05</span><span>Generated surfaces</span></div>
+          <div class="gallery-heading reveal">
+            <h2>Representative examples.</h2>
+            <p>
+              ProMS writes computed properties back into PyMOL, turning numerical
+              surface values into spatial maps that can be inspected and compared.
+            </p>
+          </div>
+          <div class="proms-image-grid">
+            <figure class="proms-image proms-image-wide reveal">
+              <img src="assets/proms/surfaces.png" alt="Comparison of molecular surfaces generated with different ProMS property mappings" />
+              <figcaption>Comparison of surface representations and physicochemical property mappings</figcaption>
+            </figure>
+            <figure class="proms-image proms-image-wide reveal">
+              <img src="assets/proms/gui.png" alt="ProMS graphical user interface with molecular input, calculation, and visualization controls" />
+              <figcaption>Desktop interface for configuring and running an analysis</figcaption>
+            </figure>
+            <figure class="proms-image proms-image-wide reveal">
+              <img src="assets/proms/aptamer-complex.png" alt="Rendered molecular surface of an aptamer complex" />
+              <figcaption>Complex molecular structure rendered through the workflow</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section section-shell">
+        <div class="case-section-label reveal"><span>06</span><span>Research output</span></div>
+        <div class="case-section-copy reveal">
+          <h2>Software as a research contribution.</h2>
+          <p class="case-lede">
+            ProMS formed the basis of my 2026 master’s thesis: <em>ProMS: An
+            Integrated Computational Framework for Molecular Surface Analysis and
+            Atomic-Level Hydrophobicity Mapping.</em>
+          </p>
+          <div class="integrity-note reveal">
+            <span aria-hidden="true">↳</span>
+            <p>The tool was distributed to researchers and collaborators across multiple universities and biotechnology organizations.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section lessons proms-lessons section-shell" hidden>
+        <div class="case-section-label reveal"><span>07</span><span>What I learned</span></div>
+        <div class="case-section-copy reveal">
+          <h2>Scientific software needs both rigor and empathy.</h2>
+          <div class="lesson-list">
+            <p class="reveal"><span>01</span>Reproducibility starts with making every physical assumption and input parameter explicit.</p>
+            <p class="reveal"><span>02</span>Visual outputs help researchers interrogate patterns that summary values alone can hide.</p>
+            <p class="reveal"><span>03</span>Flexible tools must still guide users toward consistent, interpretable analysis.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer section-shell">
+      <span>© <span id="year"></span> Matthew Cho</span>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+
+    <script src="project.js"></script>
+  </body>
+</html>
