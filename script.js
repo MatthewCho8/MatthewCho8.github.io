@@ -9,7 +9,7 @@ const portfolio = {
   links: {
     github: "https://github.com/MatthewCho8",
     linkedin: "https://www.linkedin.com/in/matthewcho8",
-    resume: "CV - no phone.pdf",
+    resume: "CV - Matthew Cho no phone.pdf",
   },
   projects: [
     {
