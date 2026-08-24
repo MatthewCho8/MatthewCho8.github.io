@@ -1,7 +1,67 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-23T17:13:31.060526+00:00",
+  "updatedAt": "2026-08-24T21:40:16.109410+00:00",
   "picks": [
+    {
+      "id": "manual:de0f6bd9-1c30-4eb0-a439-c049d6a032fd",
+      "gamePk": 825041,
+      "start": "2026-08-25T01:40:00Z",
+      "date": "2026-08-24",
+      "away": "Chicago Cubs",
+      "home": "Arizona Diamondbacks",
+      "matchup": "Chicago Cubs @ Arizona Diamondbacks",
+      "market": "moneyline",
+      "selection": "Arizona Diamondbacks",
+      "line": null,
+      "odds": 2.3,
+      "sportsbook": "Bet365",
+      "modelProbability": 0.477079,
+      "expectedRoi": 0.097281,
+      "wager": 1,
+      "result": "pending",
+      "settledAt": null,
+      "publishedAt": "2026-08-24T21:38:59.457Z"
+    },
+    {
+      "id": "manual:d4f6d8ff-b070-4ed0-af20-8608de91cfc4",
+      "gamePk": 824557,
+      "start": "2026-08-24T23:40:00Z",
+      "date": "2026-08-24",
+      "away": "Texas Rangers",
+      "home": "Chicago White Sox",
+      "matchup": "Texas Rangers @ Chicago White Sox",
+      "market": "moneyline",
+      "selection": "Texas Rangers",
+      "line": null,
+      "odds": 2.2,
+      "sportsbook": "Bet365",
+      "modelProbability": 0.533044,
+      "expectedRoi": 0.172697,
+      "wager": 1,
+      "result": "pending",
+      "settledAt": null,
+      "publishedAt": "2026-08-24T21:38:59.457Z"
+    },
+    {
+      "id": "manual:3e8c3ca4-138e-4b35-ac1a-21bd34aa3ef0",
+      "gamePk": 824235,
+      "start": "2026-08-24T22:40:00Z",
+      "date": "2026-08-24",
+      "away": "Tampa Bay Rays",
+      "home": "Detroit Tigers",
+      "matchup": "Tampa Bay Rays @ Detroit Tigers",
+      "market": "moneyline",
+      "selection": "Detroit Tigers",
+      "line": null,
+      "odds": 2.18,
+      "sportsbook": "Bet365",
+      "modelProbability": 0.529875,
+      "expectedRoi": 0.176322,
+      "wager": 1,
+      "result": "pending",
+      "settledAt": null,
+      "publishedAt": "2026-08-24T21:38:59.457Z"
+    },
     {
       "id": "manual:5e0d7595-3295-4438-bc85-4fd47a0cf14d",
       "gamePk": 823745,
@@ -18,9 +78,9 @@
       "modelProbability": 0.527259,
       "expectedRoi": 0.086155,
       "wager": 1,
-      "result": "pending",
-      "settledAt": null,
-      "publishedAt": "2026-08-23T17:12:24.421Z"
+      "result": "win",
+      "settledAt": "2026-08-24T02:26:59.613Z",
+      "publishedAt": "2026-08-24T21:38:59.457Z"
     },
     {
       "id": "manual:608031c7-2657-4c2f-93b2-af7179cb2a5a",
@@ -38,9 +98,9 @@
       "modelProbability": 0.487438,
       "expectedRoi": -0.000752,
       "wager": 1,
-      "result": "pending",
-      "settledAt": null,
-      "publishedAt": "2026-08-23T17:12:24.421Z"
+      "result": "loss",
+      "settledAt": "2026-08-23T21:54:28.788Z",
+      "publishedAt": "2026-08-24T21:38:59.457Z"
     },
     {
       "id": "manual:f48f075c-056e-4532-9b9b-5ae2d2e5d042",
@@ -58,9 +118,9 @@
       "modelProbability": 0.514622,
       "expectedRoi": 0.009451,
       "wager": 1,
-      "result": "pending",
-      "settledAt": null,
-      "publishedAt": "2026-08-23T17:12:24.421Z"
+      "result": "win",
+      "settledAt": "2026-08-23T21:13:31.365Z",
+      "publishedAt": "2026-08-24T21:38:59.457Z"
     },
     {
       "id": "manual:526ab2fc-0d0d-4267-ae8e-396d5455c92f",
@@ -80,7 +140,7 @@
       "wager": 1,
       "result": "win",
       "settledAt": "2026-08-23T03:34:19.341Z",
-      "publishedAt": "2026-08-23T17:12:24.421Z"
+      "publishedAt": "2026-08-24T21:38:59.457Z"
     },
     {
       "id": "manual:465a48d9-1ce3-43a1-b5e3-dde00f168c01",
@@ -100,7 +160,7 @@
       "wager": 1,
       "result": "win",
       "settledAt": "2026-08-23T02:35:39.129Z",
-      "publishedAt": "2026-08-23T17:12:24.421Z"
+      "publishedAt": "2026-08-24T21:38:59.457Z"
     },
     {
       "id": "manual:b9930bb0-6f6e-4094-94dc-9222a1bba254",
@@ -120,7 +180,7 @@
       "wager": 1,
       "result": "win",
       "settledAt": "2026-08-22T21:47:23.217Z",
-      "publishedAt": "2026-08-23T17:12:24.421Z"
+      "publishedAt": "2026-08-24T21:38:59.457Z"
     },
     {
       "id": "manual:cf903546-16ab-4099-a25e-33ecbe248a33",
@@ -140,7 +200,7 @@
       "wager": 1,
       "result": "win",
       "settledAt": "2026-08-22T12:36:10.868Z",
-      "publishedAt": "2026-08-23T17:12:24.421Z"
+      "publishedAt": "2026-08-24T21:38:59.457Z"
     },
     {
       "id": "manual:71e62234-b121-4fbf-9b4a-14fb66121eb7",
@@ -160,7 +220,7 @@
       "wager": 1,
       "result": "loss",
       "settledAt": "2026-08-22T12:36:10.868Z",
-      "publishedAt": "2026-08-23T17:12:24.421Z"
+      "publishedAt": "2026-08-24T21:38:59.457Z"
     },
     {
       "id": "manual:8dbc2cef-7d75-4383-a181-6c62c422c6e0",
@@ -180,7 +240,7 @@
       "wager": 1,
       "result": "loss",
       "settledAt": "2026-08-22T02:13:19.611Z",
-      "publishedAt": "2026-08-23T17:12:24.421Z"
+      "publishedAt": "2026-08-24T21:38:59.457Z"
     },
     {
       "id": "manual:5a3d1083-dc6b-489d-917e-66c71110e779",
@@ -200,7 +260,7 @@
       "wager": 1,
       "result": "loss",
       "settledAt": "2026-08-22T02:03:19.444Z",
-      "publishedAt": "2026-08-23T17:12:24.421Z"
+      "publishedAt": "2026-08-24T21:38:59.457Z"
     },
     {
       "id": "manual:4aba8e2f-8409-45d1-a86c-4f0f874e19fc",
@@ -220,7 +280,7 @@
       "wager": 1,
       "result": "loss",
       "settledAt": null,
-      "publishedAt": "2026-08-23T17:12:24.421Z"
+      "publishedAt": "2026-08-24T21:38:59.457Z"
     },
     {
       "id": "manual:ed993eae-136c-45d2-bd4b-b17562867b52",
@@ -240,7 +300,7 @@
       "wager": 1,
       "result": "win",
       "settledAt": null,
-      "publishedAt": "2026-08-23T17:12:24.421Z"
+      "publishedAt": "2026-08-24T21:38:59.457Z"
     },
     {
       "id": "manual:a3b64e55-0d35-4daa-a32f-3d07d8e4f82b",
@@ -260,7 +320,7 @@
       "wager": 1,
       "result": "win",
       "settledAt": null,
-      "publishedAt": "2026-08-23T17:12:24.421Z"
+      "publishedAt": "2026-08-24T21:38:59.457Z"
     },
     {
       "id": "manual:0c399e69-85ca-4986-864e-1ec11f680935",
@@ -280,7 +340,7 @@
       "wager": 1,
       "result": "loss",
       "settledAt": null,
-      "publishedAt": "2026-08-23T17:12:24.421Z"
+      "publishedAt": "2026-08-24T21:38:59.457Z"
     },
     {
       "id": "manual:99a426e1-ea0b-43e5-a327-51e7648022e9",
@@ -300,7 +360,7 @@
       "wager": 1,
       "result": "loss",
       "settledAt": null,
-      "publishedAt": "2026-08-23T17:12:24.421Z"
+      "publishedAt": "2026-08-24T21:38:59.457Z"
     }
   ]
 }
